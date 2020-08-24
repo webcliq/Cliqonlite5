@@ -1,0 +1,86 @@
+# data_en.toml
+
+protocol = 'http://'
+installation = 'Installation'
+manual = 'Manual'
+administration = 'Administration'
+instructions = 'Instructions'
+select = 'Please select'
+type = 'Type'
+user = 'User name'
+password = 'Password'
+
+[tabs]
+	database = 'Database'
+	idiom = 'Language'
+	adminuser = 'Administrative User'
+	config = 'Configuration'
+
+#sections
+
+[install]
+
+	instructions = '''
+		The install routine for Cliqon Lite is automatically displayed if the Configuration file does not yet exists.<br/><br/>
+
+		In order to install Cliqonlite the following tasks need to be undertaken. The program can create an Sqlite database but cannot automatically create a SQL database of any type. You should create that database manual and record the usual details required by any connection.<br/><br/>
+
+		One of the main advantages of a Cliqon Lite system is that it is automatically prepared for multiple languages. For each language you need a unique two letter code and the name of the language. Cliqon Lite automatically provides flag icons as PNG for the most popular languages.<br/><br/>
+
+		You must create an Administrative User to access the system and as part of the process of storing a secure password you should enter a secret key, which will also be the base secret for the JSON Web Token.<br/><br/>
+
+		Some configuration items that you have set will be displayed in the Configuration file, which is stored in TOML format you will have the opportunity to make further changes to the draft configuration file before saving it as the final configuration. Whereupon the website should reload the opening screen of the website.<br/><br/>
+
+		The install routine automatically checks the existence of all the Directories in the system that need to be "writeable". The results of this check are show below. If any entries are marked in <strong style="color: red;">red</strong>, please correct the problem and refresh this page to check again.
+	'''
+
+
+[database]
+
+	instructions = '''
+	You need to set the type and details of the database connection first. 
+
+	If you intend to use Sqlite, the database will be created for you in the directory data/. The extension .sqlite will be automatically added.
+
+	The Port number is only required if it is non standard for that SQL type.
+	'''
+	conntypehelp = 'Please select the type of database connection or client from the dropdown list'
+	dbnamehelp = 'If you selected Sqlite, then this is the only entry that is required.'
+	dbname = 'Database name'
+	dbuserhelp = 'Enter the user name that has authority to create the tables and access the database on the server'
+	dbpasswordhelp = 'Enter the password'
+	dbserver = 'Database server'
+	dbserverhelp = 'The name of instance of the Server that will host this database'
+	dbport = 'Port'
+	dbporthelp = 'Enter the Port number on which the Client will access the Server'
+	dbcreate = 'Create the database'
+
+[idiom]
+
+	instructions = '''
+		For each language you should create three entries. A two character language code such as `es` or `en`, the name of the language (usually in the language of the idiom), such as `English` or `Español` and finally the file name of the flag icon. All the language flags are found in /public/flags/. The default language for Cliqon is English. You may add additional languages now or at a later stage.
+		'''
+	idmcode = 'en'
+	idmname = 'English'
+	idmflag = '/public/flags/en.png'
+	delrow = 'Delete this row'
+	addrow = 'Add another row'
+	idmcreate = 'Create entries for these languages'
+
+[admin]
+
+	instructions = 'You must create at least one administrative user, in order to access the backend or administration area of the website or application'
+	userhelp = 'Enter the name of the first administrative user who will configure the rest of the system. Minimum of 5 chacters, maximum of 20.'
+	passwordhelp = 'Enter a strong password for that user. Minimum of 8 characters and a maximum of 20'
+	admcreate = 'Create this user'
+	email = 'Email address'
+	emailhelp = 'Email address is optional'
+	secret = 'Site secret'
+	secrethelp = 'This is the base API or Site Secret key for the system. It is used as a `salt` to encrypt data such as passwords. It is a required field and a minimum of 15 characters'
+
+[config]
+
+	instructions = 'You should load the configuration master file into the editor. You can then make further alterations and finally save the master file as the production configuration'
+	cfgload = 'Load the configuration file'
+	cfgsave = 'Save the configuration file'
+	cfgcomplete = 'Generate the production configuration file'

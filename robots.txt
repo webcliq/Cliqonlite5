@@ -1,0 +1,10 @@
+# robots.txt
+
+User-agent: *
+Disallow: /cache
+Disallow: /data
+Disallow: /framework
+Disallow: /config
+Disallow: /log
+Disallow: /models
+
